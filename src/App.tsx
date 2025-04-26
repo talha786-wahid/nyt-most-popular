@@ -1,36 +1,29 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ArticleList } from "./containers/ArticleList";
-import { ArticleDetail } from "./components/ArticleDetail";
-import { Header } from "./components/Header";
-import { Footer } from "./components/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { ArticlesPage } from "@/pages/ArticlesPage";
+import ArticleDetailPage from "@/pages/ArticleDetailPage";
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-      retry: 3,
-    },
-  },
-});
-
-const App = () => {
+function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <Router>
-        <div className="min-h-screen flex flex-col">
-          <Header />
-          <main className="flex-grow">
+    <BrowserRouter
+      future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
+    >
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-grow container mx-auto px-4 py-8">
+          <ErrorBoundary>
             <Routes>
-              <Route path="/" element={<ArticleList />} />
-              <Route path="/article/:id" element={<ArticleDetail />} />
+              <Route path="/" element={<ArticlesPage />} />
+              <Route path="/article/:id" element={<ArticleDetailPage />} />
             </Routes>
-          </main>
-          <Footer />
-        </div>
-      </Router>
-    </QueryClientProvider>
+          </ErrorBoundary>
+        </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;
