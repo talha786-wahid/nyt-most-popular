@@ -21,6 +21,4 @@ const ArticlesFeed = memo(({ articles }: ArticlesFeedProps) => {
   );
 });
 
-ArticlesFeed.displayName = "ArticlesFeed";
-
 export default ArticlesFeed;

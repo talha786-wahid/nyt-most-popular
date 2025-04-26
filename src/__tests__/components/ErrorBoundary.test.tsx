@@ -1,15 +1,13 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { ErrorBoundary } from "../../components/ErrorBoundary";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 
-// A component that throws an error
 const ThrowError = () => {
   throw new Error("Test error");
 };
 
 describe("ErrorBoundary", () => {
   beforeEach(() => {
-    // Mock console.error to keep test output clean
     vi.spyOn(console, "error").mockImplementation(() => {});
   });
 

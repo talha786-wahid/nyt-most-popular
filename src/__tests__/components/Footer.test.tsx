@@ -1,28 +1,23 @@
-import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import { Footer } from "../../components/Footer";
+import { render, screen } from "@testing-library/react";
+import { Footer } from "@/components/Footer";
 
 describe("Footer", () => {
   it("renders correctly", () => {
     render(<Footer />);
 
-    // Check for container classes
     const footer = screen.getByRole("contentinfo");
     expect(footer).toHaveClass("bg-gray-50", "border-t");
 
-    // Check for about section
     const aboutHeading = screen.getByRole("heading", { name: "About" });
     expect(aboutHeading).toBeInTheDocument();
 
-    // Check for links section
     const linksHeading = screen.getByRole("heading", { name: "Links" });
     expect(linksHeading).toBeInTheDocument();
 
-    // Check for legal section
     const legalHeading = screen.getByRole("heading", { name: "Legal" });
     expect(legalHeading).toBeInTheDocument();
 
-    // Check for copyright text
     const currentYear = new Date().getFullYear();
     const copyrightText = screen.getByText(
       `© ${currentYear} NY Times Most Popular. All rights reserved.`

@@ -41,6 +41,5 @@ export const fetchArticle = async (id: number): Promise<Article> => {
 };
 
 export const fetchArticleById = async (id: string) => {
-  // id from params is string, convert to number for fetchArticle
   return fetchArticle(Number(id));
 };

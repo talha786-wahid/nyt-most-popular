@@ -7,6 +7,7 @@ import ArticleDetailContent from "./ArticleDetailContent";
 
 function ArticleDetail() {
   const { id } = useParams<{ id: string }>();
+
   const {
     data: article,
     isLoading,
@@ -19,7 +20,9 @@ function ArticleDetail() {
   });
 
   if (isLoading) return <LoadingSpinner />;
+
   if (isError) return <ArticleDetailError error={error} />;
+
   if (!article)
     return <ArticleDetailError error={{ message: "Article not found" }} />;
 

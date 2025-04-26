@@ -1,6 +1,6 @@
 import { screen, fireEvent } from "@testing-library/react";
 import { TimePeriodDropdown } from "@/components/TimePeriodDropdown";
-import { render } from "../../__tests__/setup";
+import { render } from "@/__tests__/setup";
 
 describe("TimePeriodDropdown", () => {
   const mockOnChange = vi.fn();

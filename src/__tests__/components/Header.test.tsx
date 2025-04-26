@@ -1,7 +1,7 @@
-import { screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import { render } from "../../__tests__/setup";
-import { Header } from "../../components/Header";
+import { screen } from "@testing-library/react";
+import { render } from "@/__tests__/setup";
+import { Header } from "@/components/Header";
 
 describe("Header", () => {
   it("renders with correct structure", () => {

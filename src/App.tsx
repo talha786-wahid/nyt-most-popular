@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Header } from "./components/Header";
-import { Footer } from "./components/Footer";
-import { ErrorBoundary } from "./components/ErrorBoundary";
-import { ArticlesPage } from "./pages/ArticlesPage";
-import { ArticleDetailPage } from "./pages/ArticleDetailPage";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { ArticlesPage } from "@/pages/ArticlesPage";
+import ArticleDetailPage from "@/pages/ArticleDetailPage";
 
 function App() {
   return (

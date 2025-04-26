@@ -1,8 +1,8 @@
-import { screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import { render } from "../../__tests__/setup";
-import ArticlesFeed from "../../components/ArticlesFeed";
-import type { Article } from "../../types/article";
+import { screen } from "@testing-library/react";
+import { render } from "@/__tests__/setup";
+import ArticlesFeed from "@/components/ArticlesFeed";
+import type { Article } from "@/types/article";
 
 const mockArticles: Article[] = [
   {

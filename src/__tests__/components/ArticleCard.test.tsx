@@ -1,5 +1,5 @@
-import { screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
+import { screen } from "@testing-library/react";
 import { render } from "@/__tests__/setup";
 import { ArticleCard } from "@/components/Article";
 import type { Article } from "@/types/article";

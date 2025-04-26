@@ -53,6 +53,4 @@ const ArticleCard = memo(({ article }: ArticleCardProps) => {
   );
 });
 
-ArticleCard.displayName = "ArticleCard";
-
 export default ArticleCard;

@@ -1,6 +1,6 @@
 import { ArticleDetail } from "@/components/Article";
 
-export function ArticleDetailPage() {
+function ArticleDetailPage() {
   return <ArticleDetail />;
 }
 

@@ -41,7 +41,7 @@ export default function ArticleDetailContent({
       </h1>
       <div className="text-gray-500 mb-6 text-base">
         <p className="font-bold">{article.byline}</p>
-        <p>{formattedDate}</p>
+        <p className="text-sm mt-1">{formattedDate}</p>
       </div>
       {imageUrl ? (
         <img
@@ -61,21 +61,7 @@ export default function ArticleDetailContent({
         rel="noopener noreferrer"
         className="text-blue-500 hover:underline flex items-center gap-1 text-base font-medium"
       >
-        Read full article on NY Times
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-4 h-4 inline"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M18 13.5V18a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 18V8.25A2.25 2.25 0 016.75 6h4.5M15.75 3h4.5v4.5M10.5 13.5l9-9"
-          />
-        </svg>
+        Read full article on NY Times &rarr;
       </a>
     </div>
   );

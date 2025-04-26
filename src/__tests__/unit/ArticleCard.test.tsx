@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import { ArticleCard } from "@/components/Article";
 import type { Article } from "@/types/article";
-import { render } from "../../__tests__/setup";
+import { render } from "@/__tests__/setup";
 
 const mockArticle: Article = {
   id: 1,
