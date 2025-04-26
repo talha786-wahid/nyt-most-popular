@@ -8,9 +8,14 @@ interface ArticlesFeedProps {
 
 const ArticlesFeed = memo(({ articles }: ArticlesFeedProps) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
+    <div
+      data-testid="articles-feed"
+      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"
+    >
       {articles.map((article) => (
-        <ArticleCard key={article.id} article={article} />
+        <div key={article.id} className="h-full flex">
+          <ArticleCard article={article} />
+        </div>
       ))}
     </div>
   );

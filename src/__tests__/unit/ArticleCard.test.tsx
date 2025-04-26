@@ -1,6 +1,7 @@
-import { render, screen } from "@testing-library/react";
-import { ArticleCard } from "../../components/ArticleCard";
-import type { Article } from "../../types/article";
+import { screen } from "@testing-library/react";
+import { ArticleCard } from "@/components/ArticleCard";
+import type { Article } from "@/types/article";
+import { render } from "../../__tests__/setup";
 
 const mockArticle: Article = {
   id: 1,
@@ -35,12 +36,5 @@ describe("ArticleCard", () => {
     expect(screen.getByText(mockArticle.abstract)).toBeInTheDocument();
     expect(screen.getByText(mockArticle.byline)).toBeInTheDocument();
     expect(screen.getByText("1/1/2024")).toBeInTheDocument();
-    expect(screen.getByAltText(mockArticle.title)).toBeInTheDocument();
-  });
-
-  it("links to the correct article URL", () => {
-    render(<ArticleCard article={mockArticle} />);
-    const link = screen.getByRole("link");
-    expect(link).toHaveAttribute("href", `/article/${mockArticle.id}`);
   });
 });

@@ -1,35 +1,36 @@
 # NY Times Most Popular Articles
 
-A React application that displays the most popular articles from the New York Times API.
+A React application that displays the most popular articles from The New York Times using their public API.
 
 ## Features
 
 - View most popular articles from NY Times
 - Filter articles by time period (1, 7, or 30 days)
-- Detailed view for each article
-- Responsive design with Tailwind CSS
-- Unit and integration tests
-- End-to-end testing with Cypress
+- Detailed article view
+- Responsive design
+- Loading states and error handling
 
 ## Prerequisites
 
-- Node.js (v18 or higher)
-- pnpm (recommended) or npm
-- NY Times API key (get it from https://developer.nytimes.com/get-started)
+- Node.js (v14 or higher)
+- npm or yarn
+- NY Times API key (get one from [NY Times Developer Portal](https://developer.nytimes.com/get-started))
 
-## Setup
+## Installation
 
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/yourusername/nyt-most-popular.git
 cd nyt-most-popular
 ```
 
 2. Install dependencies:
 
 ```bash
-pnpm install
+npm install
+# or
+yarn install
 ```
 
 3. Create a `.env` file in the root directory and add your NY Times API key:
@@ -38,72 +39,76 @@ pnpm install
 VITE_NYT_API_KEY=your_api_key_here
 ```
 
-## Development
-
-To start the development server:
+## Running the Application
 
 ```bash
-pnpm dev
+npm run dev
+# or
+yarn dev
 ```
+
+The application will be available at `http://localhost:5173`
 
 ## Testing
 
 ### Unit Tests
 
 ```bash
-# Run unit tests
-pnpm test
-
-# Run tests with coverage
-pnpm test:coverage
-
-# Run tests with UI
-pnpm test:ui
+npm run test
+# or
+yarn test
 ```
 
-### E2E Tests
+### Test Coverage
 
 ```bash
-# Open Cypress
-pnpm cypress:open
-
-# Run Cypress tests headlessly
-pnpm cypress:run
+npm run test:coverage
+# or
+yarn test:coverage
 ```
 
-## Building for Production
+### UI Tests (Cypress)
 
 ```bash
-pnpm build
+npm run cypress:open
+# or
+yarn cypress:open
 ```
 
 ## Project Structure
 
 ```
 src/
-├── assets/         # Static assets
-├── components/     # Reusable UI components
-├── containers/     # Container components
-├── hooks/          # Custom React hooks
-├── services/       # API services
-├── types/          # TypeScript type definitions
-├── utils/          # Utility functions
-└── __tests__/      # Test files
-    ├── unit/       # Unit tests
-    └── integration/# Integration tests
+├── components/         # Reusable UI components
+│   ├── Article/       # Article-related components
+│   ├── common/        # Shared components
+│   └── layout/        # Layout components
+├── containers/        # Container components
+├── services/          # API services
+├── types/             # TypeScript type definitions
+├── utils/             # Utility functions
+└── __tests__/         # Test files
 ```
 
 ## Technologies Used
 
-- React 19
+- React
 - TypeScript
-- Tailwind CSS
+- Vite
 - React Query
-- React Router
-- Vitest
+- Tailwind CSS
+- Jest
+- React Testing Library
 - Cypress
-- Axios
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
-MIT
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
