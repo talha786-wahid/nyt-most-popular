@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ArticleList } from "./containers/ArticleList";
-import { ArticleDetail } from "./components/ArticleDetail";
+import { ArticleDetail } from "./components/Article";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 

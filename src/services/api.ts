@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { ArticleResponse, TimePeriod } from "../types/article";
+import type { ArticleResponse, TimePeriod } from "@/types/article";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const API_KEY = import.meta.env.VITE_NYT_API_KEY;

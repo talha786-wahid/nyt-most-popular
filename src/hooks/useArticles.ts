@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchArticles } from "../services/api";
-import type { TimePeriod } from "../types/article";
+import { fetchArticles } from "@/services/api";
+import type { TimePeriod } from "@/types/article";
 
 export const useArticles = (period: TimePeriod) => {
   return useQuery({

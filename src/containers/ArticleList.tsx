@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import type { ArticleResponse, TimePeriod } from "../types/article";
-import { fetchArticles } from "../services/api";
-import { LoadingSpinner } from "../components/LoadingSpinner";
-import { ErrorMessage } from "../components/ErrorMessage";
-import { NoImage } from "../components/NoImage";
-import { TimePeriodDropdown } from "../components/TimePeriodDropdown";
+import type { ArticleResponse, TimePeriod } from "@/types/article";
+import { fetchArticles } from "@/services/api";
+import { LoadingSpinner } from "@/components/LoadingSpinner";
+import { ErrorMessage } from "@/components/ErrorMessage";
+import { NoImage } from "@/components/NoImage";
+import { TimePeriodDropdown } from "@/components/TimePeriodDropdown";
 
 export const ArticleList = () => {
   const [selectedPeriod, setSelectedPeriod] = useState<TimePeriod>(1);

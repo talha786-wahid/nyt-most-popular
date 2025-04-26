@@ -1,5 +1,5 @@
 import { memo } from "react";
-import type { TimePeriod } from "../types/article";
+import type { TimePeriod } from "@/types/article";
 
 interface TimePeriodDropdownProps {
   selectedPeriod: TimePeriod;
