@@ -30,8 +30,5 @@ cypress/downloads/
 # Coverage reports
 coverage/
 
-# Temporary files
-.tmp/
-
 # Cypress cache
 coverage/*
