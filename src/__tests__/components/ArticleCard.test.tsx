@@ -1,8 +1,8 @@
 import { screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import { render } from "../../__tests__/setup";
-import { ArticleCard } from "../../components/ArticleCard";
-import type { Article } from "../../types/article";
+import { render } from "@/__tests__/setup";
+import { ArticleCard } from "@/components/Article";
+import type { Article } from "@/types/article";
 
 const mockArticle: Article = {
   id: 1,
@@ -26,10 +26,9 @@ describe("ArticleCard", () => {
       "h-full",
       "w-full",
       "bg-white",
-      "border-0",
+      "border",
+      "border-gray-200",
       "rounded-xl",
-      "shadow-md",
-      "hover:shadow-lg",
       "transition-shadow",
       "cursor-pointer"
     );

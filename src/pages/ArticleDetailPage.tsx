@@ -1,4 +1,4 @@
-import ArticleDetail from "../components/ArticleDetail";
+import { ArticleDetail } from "@/components/Article";
 
 export function ArticleDetailPage() {
   return <ArticleDetail />;

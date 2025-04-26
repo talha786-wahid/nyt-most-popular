@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import ArticlesFeed from "../components/ArticlesFeed";
-import { TimePeriodDropdown } from "../components/TimePeriodDropdown";
-import { LoadingSpinner } from "../components/LoadingSpinner";
-import { ErrorMessage } from "../components/ErrorMessage";
-import { fetchArticles } from "../services/api";
-import type { Article, TimePeriod } from "../types/article";
+import ArticlesFeed from "@/components/ArticlesFeed";
+import { TimePeriodDropdown } from "@/components/TimePeriodDropdown";
+import { LoadingSpinner } from "@/components/LoadingSpinner";
+import { ErrorMessage } from "@/components/ErrorMessage";
+import { fetchArticles } from "@/services/api";
+import type { TimePeriod } from "@/types/article";
 
 export function ArticlesPage() {
   const [timePeriod, setTimePeriod] = useState<TimePeriod>(1);

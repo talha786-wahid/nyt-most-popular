@@ -15,7 +15,7 @@ const NoImage = () => (
   </div>
 );
 
-export const ArticleCard = memo(({ article }: ArticleCardProps) => {
+const ArticleCard = memo(({ article }: ArticleCardProps) => {
   const formattedDate = new Date(article.published_date).toLocaleDateString();
   const mediaMeta = article.media?.[0]?.["media-metadata"];
   const imageUrl = mediaMeta ? mediaMeta[mediaMeta.length - 1]?.url : undefined;
@@ -23,7 +23,7 @@ export const ArticleCard = memo(({ article }: ArticleCardProps) => {
   return (
     <Link
       to={`/article/${article.id}`}
-      className="flex flex-col h-full w-full bg-white border-0 rounded-xl shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+      className="flex flex-col h-full w-full bg-white border border-gray-200 rounded-xl transition-shadow cursor-pointer"
       data-testid="article-card-link"
     >
       {imageUrl ? (
@@ -54,3 +54,5 @@ export const ArticleCard = memo(({ article }: ArticleCardProps) => {
 });
 
 ArticleCard.displayName = "ArticleCard";
+
+export default ArticleCard;

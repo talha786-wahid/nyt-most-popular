@@ -7,18 +7,22 @@ interface TestWrapperProps {
   route?: string;
 }
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: false,
-      gcTime: 0,
+// Create a new QueryClient for each test
+const createTestQueryClient = () =>
+  new QueryClient({
+    defaultOptions: {
+      queries: {
+        retry: false,
+        gcTime: 0,
+      },
     },
-  },
-});
+  });
 
 export function TestWrapper({ children, route = "/" }: TestWrapperProps) {
+  const testQueryClient = createTestQueryClient();
+
   return (
-    <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={testQueryClient}>
       <MemoryRouter
         initialEntries={[route]}
         future={{ v7_startTransition: true, v7_relativeSplatPath: true }}

@@ -1,17 +1,16 @@
-import { BackButton } from "@/components/BackButton";
+interface ArticleDetailErrorProps {
+  error: { message?: string };
+}
 
-export const ArticleDetailError = () => {
+export default function ArticleDetailError({ error }: ArticleDetailErrorProps) {
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-2xl font-bold text-red-600 mb-4">
-          Error Loading Article
-        </h2>
-        <p className="text-gray-600 mb-8">
-          Unable to load the article. Please try again later.
-        </p>
-        <BackButton />
+    <div className="flex flex-col items-center justify-center py-16">
+      <div className="text-red-600 font-semibold text-lg mb-2">
+        Error loading article
+      </div>
+      <div className="text-gray-500">
+        {error.message || "An unknown error occurred."}
       </div>
     </div>
   );
-};
+}

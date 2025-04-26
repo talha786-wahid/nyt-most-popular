@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Header: React.FC = () => {
   return (
-    <header role="banner" className="bg-white shadow-sm">
+    <header role="banner" className="bg-white border-b border-gray-200">
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">

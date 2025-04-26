@@ -1,32 +1,29 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { fetchArticles } from "@/services/api";
-import type { TimePeriod } from "@/types/article";
-import { ArticleDetailLoading } from "./ArticleDetailLoading";
-import { ArticleDetailError } from "./ArticleDetailError";
-import { ArticleDetailNotFound } from "./ArticleDetailNotFound";
-import { ArticleDetailContent } from "./ArticleDetailContent";
+import { fetchArticleById } from "@/services/api";
+import { LoadingSpinner } from "@/components/LoadingSpinner";
+import ArticleDetailError from "./ArticleDetailError";
+import ArticleDetailContent from "./ArticleDetailContent";
 
-export const ArticleDetail = () => {
+function ArticleDetail() {
   const { id } = useParams<{ id: string }>();
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["articles", 1],
-    queryFn: () => fetchArticles(1 as TimePeriod),
+  const {
+    data: article,
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
+    queryKey: ["article", id],
+    queryFn: () => fetchArticleById(id!),
+    enabled: !!id,
   });
 
-  if (isLoading) {
-    return <ArticleDetailLoading />;
-  }
-
-  if (error || !data) {
-    return <ArticleDetailError />;
-  }
-
-  const article = data.results.find((a) => a.id === Number(id));
-
-  if (!article) {
-    return <ArticleDetailNotFound />;
-  }
+  if (isLoading) return <LoadingSpinner />;
+  if (isError) return <ArticleDetailError error={error} />;
+  if (!article)
+    return <ArticleDetailError error={{ message: "Article not found" }} />;
 
   return <ArticleDetailContent article={article} />;
-};
+}
+
+export default ArticleDetail;

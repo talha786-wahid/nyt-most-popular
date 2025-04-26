@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { ArticleCard } from "./ArticleCard";
+import { ArticleCard } from "@/components/Article";
 import type { Article } from "@/types/article";
 
 interface ArticlesFeedProps {

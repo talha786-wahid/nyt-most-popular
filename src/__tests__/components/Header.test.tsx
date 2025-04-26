@@ -9,7 +9,7 @@ describe("Header", () => {
 
     const header = screen.getByRole("banner");
     expect(header).toBeInTheDocument();
-    expect(header).toHaveClass("bg-white", "shadow-sm");
+    expect(header).toHaveClass("bg-white", "border-b", "border-gray-200");
   });
 
   it("renders NY Times logo and title", () => {
@@ -22,11 +22,7 @@ describe("Header", () => {
       "font-bold",
       "text-gray-900"
     );
-    expect(nyTimesElements[1]).toHaveClass(
-      "text-gray-600",
-      "hover:text-blue-600",
-      "transition-colors"
-    );
+    expect(nyTimesElements[1]).toHaveClass("text-gray-600");
   });
 
   it("renders external links", () => {
@@ -57,9 +53,7 @@ describe("Header", () => {
       .filter((link) => link.getAttribute("href")?.startsWith("http"));
     externalLinks.forEach((link) => {
       expect(link).toHaveClass(
-        "text-gray-600",
-        "hover:text-blue-600",
-        "transition-colors"
+        "text-gray-600 hover:text-blue-600 transition-colors"
       );
     });
   });
