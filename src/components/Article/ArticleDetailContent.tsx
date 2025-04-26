@@ -53,7 +53,7 @@ export default function ArticleDetailContent({
       ) : (
         <NoImage />
       )}
-      <div className="text-gray-700 text-base mb-8">{article.abstract}</div>
+      <div className="text-gray-700 text-base mb-8">{article.abstract}</div>dddd
       <hr className="my-6 border-gray-200" />
       <a
         href={article.url}

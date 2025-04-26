@@ -26,27 +26,44 @@ const ArticleCard = memo(({ article }: ArticleCardProps) => {
       className="flex flex-col h-full w-full bg-white border border-gray-200 rounded-xl transition-shadow cursor-pointer"
       data-testid="article-card-link"
     >
-      {imageUrl ? (
-        <img
-          src={imageUrl}
-          alt={article.title}
-          className="w-full aspect-video object-cover rounded-t-xl"
-        />
-      ) : (
-        <NoImage />
-      )}
-      <div className="flex flex-col flex-1 p-6">
-        <h2 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2">
-          {article.title}
-        </h2>
-        <p className="text-gray-600 mb-4 line-clamp-3 flex-1">
-          {article.abstract}
-        </p>
-        <div className="mt-auto">
-          <div className="text-gray-500 text-sm mb-1 font-bold">
-            {article.byline}
+      <div data-testid="article-card">
+        {imageUrl ? (
+          <img
+            src={imageUrl}
+            alt={article.title}
+            className="w-full aspect-video object-cover rounded-t-xl"
+            data-testid="article-image"
+          />
+        ) : (
+          <NoImage />
+        )}
+        <div className="flex flex-col flex-1 p-6">
+          <h2
+            className="text-xl font-bold text-gray-900 mb-2 line-clamp-2"
+            data-testid="article-title"
+          >
+            {article.title}
+          </h2>
+          <p
+            className="text-gray-600 mb-4 line-clamp-3 flex-1"
+            data-testid="article-abstract"
+          >
+            {article.abstract}
+          </p>
+          <div className="mt-auto">
+            <div
+              className="text-gray-500 text-sm mb-1 font-bold"
+              data-testid="article-byline"
+            >
+              {article.byline}
+            </div>
+            <div
+              className="text-gray-400 text-sm mb-2"
+              data-testid="article-date"
+            >
+              {formattedDate}
+            </div>
           </div>
-          <div className="text-gray-400 text-sm mb-2">{formattedDate}</div>
         </div>
       </div>
     </Link>

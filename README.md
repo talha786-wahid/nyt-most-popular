@@ -13,7 +13,7 @@ A React application that displays the most popular articles from The New York Ti
 ## Prerequisites
 
 - Node.js (v14 or higher)
-- npm or yarn
+- pnpm, npm or yarn
 - NY Times API key (get one from [NY Times Developer Portal](https://developer.nytimes.com/get-started))
 
 ## Installation
@@ -21,19 +21,33 @@ A React application that displays the most popular articles from The New York Ti
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/nyt-most-popular.git
+git clone https://github.com/talha786-wahid/nyt-most-popular.git
 cd nyt-most-popular
 ```
 
 2. Install dependencies:
 
 ```bash
+pnpm install
+# or
 npm install
 # or
 yarn install
 ```
 
-3. Create a `.env` file in the root directory and add your NY Times API key:
+## Environment Variables
+
+> **Note:**  
+> We do **not** share or push `.env` files to GitHub.
+
+Since this is an **assessment project**, I have included a `.env.development` file for easier setup.
+
+In real-world projects, we **only add** a `.env.example` file (containing only the variable names, no real values), and developers must obtain the actual environment values privately from the team.
+
+### Setting Up Your Environment
+
+3. Create a `.env.development` file in the root directory and add your NY Times API key:
+4. Add your NY Times API key to it:
 
 ```bash
 VITE_NYT_API_KEY=your_api_key_here
@@ -42,6 +56,8 @@ VITE_NYT_API_KEY=your_api_key_here
 ## Running the Application
 
 ```bash
+pnpm dev
+# or
 npm run dev
 # or
 yarn dev
@@ -54,6 +70,8 @@ The application will be available at `http://localhost:5173`
 ### Unit Tests
 
 ```bash
+pnpm test
+# or
 npm run test
 # or
 yarn test
@@ -62,6 +80,8 @@ yarn test
 ### Test Coverage
 
 ```bash
+pnpm test:coverage
+# or
 npm run test:coverage
 # or
 yarn test:coverage
@@ -70,6 +90,8 @@ yarn test:coverage
 ### UI Tests (Cypress)
 
 ```bash
+pnpm cypress:open
+# or
 npm run cypress:open
 # or
 yarn cypress:open
@@ -79,15 +101,14 @@ yarn cypress:open
 
 ```
 src/
-├── components/         # Reusable UI components
+└── __tests__/         # Test files
+├── assets/            # Assets (icons, images and fonts)
+├── components/        # Reusable UI components
 │   ├── Article/       # Article-related components
-│   ├── common/        # Shared components
-│   └── layout/        # Layout components
-├── containers/        # Container components
+├── hooks/             # Custom hooks
+├── pages/             # Custom pages
 ├── services/          # API services
 ├── types/             # TypeScript type definitions
-├── utils/             # Utility functions
-└── __tests__/         # Test files
 ```
 
 ## Technologies Used
@@ -112,3 +133,15 @@ src/
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Code Quality
+
+### Linting
+
+```bash
+pnpm lint
+# or
+npm run lint
+# or
+yarn lint
+```

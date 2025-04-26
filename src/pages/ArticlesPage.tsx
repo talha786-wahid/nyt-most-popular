@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ArticlesFeed from "@/components/ArticlesFeed";
 import { TimePeriodDropdown } from "@/components/TimePeriodDropdown";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
@@ -7,8 +7,17 @@ import { ErrorMessage } from "@/components/ErrorMessage";
 import { fetchArticles } from "@/services/api";
 import type { TimePeriod } from "@/types/article";
 
+const TIME_PERIOD_KEY = "selectedTimePeriod";
+
 export function ArticlesPage() {
-  const [timePeriod, setTimePeriod] = useState<TimePeriod>(1);
+  const [timePeriod, setTimePeriod] = useState<TimePeriod>(() => {
+    const saved = localStorage.getItem(TIME_PERIOD_KEY);
+    return (saved ? parseInt(saved, 10) : 1) as TimePeriod;
+  });
+
+  useEffect(() => {
+    localStorage.setItem(TIME_PERIOD_KEY, timePeriod.toString());
+  }, [timePeriod]);
 
   const {
     data: articles,
@@ -45,9 +54,7 @@ export function ArticlesPage() {
         {error && (
           <ErrorMessage message="Failed to load articles. Please try again later." />
         )}
-        {articles && !isLoading && !error && (
-          <ArticlesFeed articles={articles} />
-        )}
+        <ArticlesFeed articles={articles || []} isLoading={isLoading} />
       </div>
     </div>
   );

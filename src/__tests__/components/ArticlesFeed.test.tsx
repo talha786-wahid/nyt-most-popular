@@ -48,6 +48,28 @@ describe("ArticlesFeed", () => {
 
     const grid = screen.getByTestId("articles-feed");
     expect(grid).toBeInTheDocument();
-    expect(grid).toBeEmptyDOMElement();
+    expect(grid).toHaveTextContent("No articles found");
+    expect(grid).toHaveClass(
+      "min-h-[200px]",
+      "flex",
+      "items-center",
+      "justify-center",
+      "text-gray-500"
+    );
+  });
+
+  it("does not render empty state when loading", () => {
+    render(<ArticlesFeed articles={[]} isLoading={true} />);
+
+    const grid = screen.getByTestId("articles-feed");
+    expect(grid).toBeInTheDocument();
+    expect(grid).not.toHaveTextContent("No articles found");
+    expect(grid).toHaveClass(
+      "grid",
+      "grid-cols-1",
+      "sm:grid-cols-2",
+      "md:grid-cols-3",
+      "gap-4"
+    );
   });
 });
