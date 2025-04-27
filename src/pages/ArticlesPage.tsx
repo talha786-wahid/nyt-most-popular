@@ -1,11 +1,11 @@
-import { useQuery } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { fetchArticles } from "@/services/api";
+import type { TimePeriod } from "@/types/article";
 import ArticlesFeed from "@/components/ArticlesFeed";
 import { TimePeriodDropdown } from "@/components/TimePeriodDropdown";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { ErrorMessage } from "@/components/ErrorMessage";
-import { fetchArticles } from "@/services/api";
-import type { TimePeriod } from "@/types/article";
 
 const TIME_PERIOD_KEY = "selectedTimePeriod";
 

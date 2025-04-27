@@ -47,8 +47,10 @@ export default function ArticleDetailContent({
         <img
           src={imageUrl}
           alt={article.title}
-          className="w-full rounded-xl object-cover mb-6 shadow-md max-h-[400px]"
-          style={{ aspectRatio: "16/9", objectFit: "cover" }}
+          className="aspect-w-16 aspect-h-9 object-cover mb-6 shadow-md"
+          width={800}
+          height={450}
+          loading="lazy"
         />
       ) : (
         <NoImage />

@@ -13,7 +13,8 @@ describe("NoImage", () => {
       "bg-gray-100",
       "flex",
       "items-center",
-      "justify-center"
+      "justify-center",
+      "object-contain"
     );
   });
 

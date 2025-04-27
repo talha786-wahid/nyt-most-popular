@@ -38,7 +38,14 @@ export const TimePeriodDropdown = memo(
           ))}
         </select>
         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-          <img src={dropdownArrow} alt="Dropdown arrow" className="h-4 w-4" />
+          <img
+            src={dropdownArrow}
+            alt="Dropdown arrow"
+            className="object-contain"
+            loading="lazy"
+            width={16}
+            height={16}
+          />
         </div>
       </div>
     );
