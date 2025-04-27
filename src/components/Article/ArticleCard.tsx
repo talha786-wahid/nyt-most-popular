@@ -18,7 +18,10 @@ const NoImage = () => (
 const ArticleCard = memo(({ article }: ArticleCardProps) => {
   const formattedDate = new Date(article.published_date).toLocaleDateString();
   const mediaMeta = article.media?.[0]?.["media-metadata"];
-  const imageUrl = mediaMeta ? mediaMeta[mediaMeta.length - 1]?.url : undefined;
+  const imageUrl = mediaMeta
+    ? mediaMeta.find((img) => img.width >= 640)?.url ||
+      mediaMeta[mediaMeta.length - 1]?.url
+    : undefined;
 
   return (
     <Link
@@ -35,7 +38,6 @@ const ArticleCard = memo(({ article }: ArticleCardProps) => {
             height={360}
             className="aspect-video object-cover rounded-t-xl"
             data-testid="article-image"
-            loading="lazy"
           />
         ) : (
           <NoImage />
@@ -61,7 +63,7 @@ const ArticleCard = memo(({ article }: ArticleCardProps) => {
               {article.byline}
             </div>
             <div
-              className="text-gray-400 text-sm mb-2"
+              className="text-gray-700 text-sm mb-2"
               data-testid="article-date"
             >
               {formattedDate}

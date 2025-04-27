@@ -8,14 +8,16 @@ export const Header: React.FC = () => {
       <nav className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
-            <img
-              src={nytLogo}
-              alt="NY Times Logo"
-              width={32}
-              height={32}
-              className="object-contain"
-              loading="lazy"
-            />
+            <div className="w-8 h-8 flex-shrink-0">
+              <img
+                src={nytLogo}
+                alt="NY Times Logo"
+                width={32}
+                height={32}
+                className="object-contain w-full h-full"
+                loading="lazy"
+              />
+            </div>
             <div className="flex flex-col">
               <span className="text-2xl font-bold text-gray-900">NY Times</span>
               <span className="text-sm text-gray-600">Most Popular</span>
