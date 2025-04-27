@@ -20,9 +20,15 @@ export const TimePeriodDropdown = memo(
     onPeriodChange,
     disabled = false,
   }: TimePeriodDropdownProps) => {
+    const selectId = "time-period-dropdown";
+
     return (
       <div className="relative">
+        <label htmlFor={selectId} className="sr-only">
+          Select Time Period
+        </label>
         <select
+          id={selectId}
           value={selectedPeriod}
           onChange={(e) => onPeriodChange(Number(e.target.value) as TimePeriod)}
           disabled={disabled}
@@ -51,5 +57,3 @@ export const TimePeriodDropdown = memo(
     );
   }
 );
-
-TimePeriodDropdown.displayName = "TimePeriodDropdown";
