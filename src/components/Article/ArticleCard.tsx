@@ -31,8 +31,11 @@ const ArticleCard = memo(({ article }: ArticleCardProps) => {
           <img
             src={imageUrl}
             alt={article.title}
-            className="w-full aspect-video object-cover rounded-t-xl"
+            width={640}
+            height={360}
+            className="aspect-video object-cover rounded-t-xl"
             data-testid="article-image"
+            loading="lazy"
           />
         ) : (
           <NoImage />

@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { ErrorMessage } from "@/components/ErrorMessage";
 
@@ -15,8 +16,9 @@ describe("ErrorMessage", () => {
       "min-h-[400px]"
     );
 
-    const errorMessage = screen.getByText(testMessage);
+    const errorMessage = screen.getByTestId("error-message");
     expect(errorMessage).toBeInTheDocument();
+    expect(errorMessage).toHaveTextContent(testMessage);
     expect(errorMessage).toHaveClass("text-red-500", "text-lg");
   });
 
@@ -25,7 +27,8 @@ describe("ErrorMessage", () => {
 
     messages.forEach((message) => {
       const { unmount } = render(<ErrorMessage message={message} />);
-      expect(screen.getByText(message)).toBeInTheDocument();
+      const errorMessage = screen.getByTestId("error-message");
+      expect(errorMessage).toHaveTextContent(message);
       unmount();
     });
   });

@@ -1,3 +1,4 @@
+import { describe, it, expect, vi, beforeEach } from "vitest";
 import { screen, fireEvent } from "@testing-library/react";
 import { TimePeriodDropdown } from "@/components/TimePeriodDropdown";
 import { render } from "@/__tests__/setup";
@@ -72,5 +73,15 @@ describe("TimePeriodDropdown", () => {
       "duration-200",
       "cursor-pointer"
     );
+  });
+
+  it("renders dropdown arrow icon", () => {
+    render(
+      <TimePeriodDropdown selectedPeriod={1} onPeriodChange={mockOnChange} />
+    );
+
+    const arrowIcon = screen.getByAltText("Dropdown arrow");
+    expect(arrowIcon).toBeInTheDocument();
+    expect(arrowIcon).toHaveClass("object-contain");
   });
 });

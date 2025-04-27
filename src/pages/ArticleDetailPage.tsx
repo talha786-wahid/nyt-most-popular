@@ -60,7 +60,10 @@ function ArticleDetailPage() {
             src={imageUrl}
             alt={article.title}
             className="w-full aspect-video object-cover rounded-lg mb-6"
+            width={640}
+            height={360}
             data-testid="article-image"
+            loading="lazy"
           />
         ) : (
           <div

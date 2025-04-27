@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { screen } from "@testing-library/react";
 import { ArticleCard } from "@/components/Article";
 import type { Article } from "@/types/article";
@@ -28,13 +29,52 @@ const mockArticle: Article = {
   ],
 };
 
+const mockArticleWithoutImage: Article = {
+  ...mockArticle,
+  media: [],
+};
+
 describe("ArticleCard", () => {
   it("renders article information correctly", () => {
     render(<ArticleCard article={mockArticle} />);
 
-    expect(screen.getByText(mockArticle.title)).toBeInTheDocument();
-    expect(screen.getByText(mockArticle.abstract)).toBeInTheDocument();
-    expect(screen.getByText(mockArticle.byline)).toBeInTheDocument();
-    expect(screen.getByText("1/1/2024")).toBeInTheDocument();
+    const card = screen.getByTestId("article-card");
+    expect(card).toBeInTheDocument();
+
+    const title = screen.getByTestId("article-title");
+    expect(title).toHaveTextContent(mockArticle.title);
+
+    const abstract = screen.getByTestId("article-abstract");
+    expect(abstract).toHaveTextContent(mockArticle.abstract);
+
+    const byline = screen.getByTestId("article-byline");
+    expect(byline).toHaveTextContent(mockArticle.byline);
+
+    const date = screen.getByTestId("article-date");
+    expect(date).toBeInTheDocument();
+  });
+
+  it("renders image when available", () => {
+    render(<ArticleCard article={mockArticle} />);
+
+    const image = screen.getByTestId("article-image");
+    expect(image).toBeInTheDocument();
+    expect(image).toHaveAttribute("src", "https://example.com/image.jpg");
+    expect(image).toHaveAttribute("alt", mockArticle.title);
+  });
+
+  it("renders NoImage component when no image is available", () => {
+    render(<ArticleCard article={mockArticleWithoutImage} />);
+
+    const noImageContainer = screen.getByTestId("no-image-container");
+    expect(noImageContainer).toBeInTheDocument();
+    expect(noImageContainer).toHaveTextContent("No Image Available");
+  });
+
+  it("renders correct link href", () => {
+    render(<ArticleCard article={mockArticle} />);
+
+    const link = screen.getByTestId("article-card-link");
+    expect(link).toHaveAttribute("href", `/article/${mockArticle.id}`);
   });
 });
